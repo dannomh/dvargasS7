@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="dvargasS7.Vistas.Inicio"
+             Title="Inicio">
+    <VerticalStackLayout>
+        <Label 
+            Text="Consumo de Servicio Web - GET"
+            FontSize="20"
+            HorizontalTextAlignment="Center"
+            FontAttributes="Bold"/>
+
+        <Grid Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label  Text="Codigo" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+            <Label  Text="Nombre" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"/>
+            <Label  Text="Apellido" Grid.Row="0" Grid.Column="2" FontAttributes="Bold"/>
+            <Label  Text="Edad" Grid.Row="0" Grid.Column="3" FontAttributes="Bold"/>
+        </Grid>
+
+        <ListView x:Name="listaEstudiantes" ItemSelected="listaEstudiantes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+
+                        <StackLayout>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblcodigo" Text="{Binding codigo}" Grid.Row="0" Grid.Column="0"/>
+                                <Label x:Name="lblNombre" Text="{Binding nombre}" Grid.Row="0" Grid.Column="1"/>
+                                <Label x:Name="lblApellido" Text="{Binding apellido}" Grid.Row="0" Grid.Column="2"/>
+                                <Label x:Name="lbledad" Text="{Binding edad}" Grid.Row="0" Grid.Column="3"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnAdd" Text="Agregar Estudiante"
+                Clicked="btnAdd_Clicked"
+                Margin="20,15,20,0"
+                BackgroundColor="Blue"/>
+    </VerticalStackLayout>
+</ContentPage>
